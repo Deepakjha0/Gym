@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Gallery</title>
+  </head>
+  <body>
+    <header>
+      <img src="gymicon.png" alt="Gym logo" id="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li>
+            <select onchange="location = this.value;">
+              <option value="index.html">Service</option>
+              <option value="member.html">Membership</option>
+              <option value="Personal training.html">Personal Training</option>
+              <option value="Groupfit.html">Group Fitness classes</option>
+              <option value="cardio equip.html">Cardio Equipment</option>
+              <option value="strength train.html">Strength Training</option>
+              <option value="y and p.html">Yoga and Pilates</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <div class="banner">
+        <h1>Welcome to My Gym</h1>
+        <p>Get fit and stay healthy</p>
+      </div>
+    </section>
+
+    <div class="header">
+      <h1>Gallery</h1>
+    </div>
+
+    <div class="container">
+      <h1>Check Out Our Gym's Photos</h1>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="gym1.jpeg" alt="Gym Image 1" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym2.jpg" alt="Gym Image 2" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym3.jpg" alt="Gym Image 3" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym4.webp" alt="Gym Image 3" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym5.jpeg" alt="Gym Image 3" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym6.jpg" alt="Gym Image 3" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym7.webp" alt="Gym Image 3" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="gym8.webp" alt="Gym Image 3" />
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">&plus;</span>
+          </div>
+        </div>
+
+        <!-- Add more gallery items as needed -->
+      </div>
+
+      <div class="modal">
+        <img class="modal-image" src="" alt="" />
+        <span class="modal-close">&times;</span>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript code for modal functionality
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const modal = document.querySelector(".modal");
+      const modalImage = document.querySelector(".modal-image");
+      const modalClose = document.querySelector(".modal-close");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const imageSrc = item.querySelector("img").src;
+          modalImage.src = imageSrc;
+          modal.classList.add("show");
+        });
+      });
+
+      modalClose.addEventListener("click", () => {
+        modal.classList.remove("show");
+      });
+    </script>
+    <footer>
+        <p>&copy; 2023 AHD Gym. All rights reserved.</p>
+      </footer>
+  </body>
+</html>

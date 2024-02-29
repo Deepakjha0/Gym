@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>About Us</title>
+  </head>
+  <body>
+    <header>
+      <img src="gymicon.png" alt="Gym logo" id="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li>
+            <select onchange="location = this.value;">
+              <option value="">Service</option>
+              <option value="member.html">Membership</option>
+              <option value="Personal training.html">Personal Training</option>
+              <option value="Groupfit.html">Group Fitness classes</option>
+              <option value="cardio equip.html">Cardio Equipment</option>
+              <option value="strength train.html">Strength Training</option>
+              <option value="y and p.html">Yoga and Pilates</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <div class="banner">
+        <h1>Welcome to My Gym</h1>
+        <p>Get fit and stay healthy</p>
+      </div>
+    </section>
+    <section id="services">
+      <div class="container">
+        <h1>About Us</h1>
+        <br />
+        <h2>Welcome to [ AHD Gym]!</h2>
+
+        At [ AHD Gym], we are passionate about fitness and committed to helping
+        you achieve your health and wellness goals. We believe that a strong
+        body leads to a strong mind, and our mission is to empower individuals
+        of all fitness levels to live healthier, happier lives.
+        <br />
+
+        Our state-of-the-art facility is equipped with top-of-the-line equipment
+        and offers a wide range of fitness classes and programs tailored to suit
+        your needs. Whether you're a beginner taking your first steps into the
+        fitness world or a seasoned athlete looking to challenge yourself, we
+        have something for everyone.
+        <br />
+
+        What sets us apart is our team of experienced and certified trainers who
+        are dedicated to providing personalized guidance and support. They are
+        here to inspire, motivate, and educate you on proper techniques,
+        nutrition, and exercise routines. We are committed to helping you reach
+        your full potential and exceed your fitness expectations.
+        <br />
+
+        At [ AHD Gym], we foster a welcoming and inclusive environment. Our
+        community of members is supportive and encourages one another to strive
+        for greatness. We believe that fitness should be fun and enjoyable, and
+        we aim to create an atmosphere where you can work hard, have fun, and
+        achieve amazing results.
+        <br />
+        We also offer additional amenities such as locker rooms, showers, and a
+        smoothie bar, ensuring that your experience with us is comfortable and
+        convenient.
+        <br />
+        Join us today and embark on your fitness journey with confidence.
+        Discover the power of fitness and become the best version of yourself.
+        We are here to support you every step of the way.
+        <br />
+        Thank you for choosing [ AHD Gym] as your fitness destination. We look
+        forward to welcoming you to our vibrant community!
+      </div>
+    </section>
+
+    <div class="counter-container">
+      <div class="counter">
+        <span class="count">0</span>
+        <span class="label">Joining Members</span>
+      </div>
+    </div>
+
+    <script>
+      // Function to animate the counter
+function animateCounter(element, targetValue, duration) {
+  const startValue = parseInt(element.textContent);
+  const range = targetValue - startValue;
+  const increment = range / duration * 10;
+  let currentValue = startValue;
+
+  const updateCount = () => {
+    currentValue += increment;
+    element.textContent = Math.round(currentValue);
+
+    if (currentValue < targetValue) {
+      requestAnimationFrame(updateCount);
+    } else {
+      element.textContent = targetValue;
+    }
+  };
+
+  updateCount();
+}
+
+// Set the target value and duration for the counter animation
+const targetValue = 100; // Replace with the actual number of joining members
+const duration = 2000; // Duration in milliseconds
+
+// Get the counter element
+const counterElement = document.querySelector('.count');
+
+// Animate the counter
+animateCounter(counterElement, targetValue, duration);
+
+    </script>
+    <footer>
+      <p>&copy; 2023 AHD Gym. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

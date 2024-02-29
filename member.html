@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Membership</title>
+  </head>
+  <body>
+    <header>
+      <img src="gymicon.png" alt="Gym logo" id="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li>
+            <select onchange="location = this.value;">
+              <option value="index.html">Service</option>
+              <option value="member.html">Membership</option>
+              <option value="Personal training.html">Personal Training</option>
+              <option value="Groupfit.html">Group Fitness classes</option>
+              <option value="cardio equip.html">Cardio Equipment</option>
+              <option value="strength train.html">Strength Training</option>
+              <option value="y and p.html">Yoga and Pilates</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <div class="banner">
+        <h1>Welcome to My Gym</h1>
+        <p>Get fit and stay healthy</p>
+      </div>
+    </section>
+
+    <div class="pricing-container">
+      <div class="membership-option">
+        <h3>Basic Membership</h3>
+        <p class="price">$29.99/month</p>
+        <ul>
+          <li>Access to gym facilities</li>
+          <li>Cardio equipment</li>
+          <li>Group fitness classes</li>
+        </ul>
+      </div>
+      <div class="membership-option">
+        <h3>Premium Membership</h3>
+        <p class="price">$49.99/month</p>
+        <ul>
+          <li>Access to all gym facilities</li>
+          <li>Cardio and strength training equipment</li>
+          <li>Group fitness classes and personal training sessions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="membership-customize">
+      <h3>Customize Your Membership:</h3>
+      <div class="customize-options">
+        <label for="membership-duration">Membership Duration:</label>
+        <select id="membership-duration">
+          <option value="1">1 Month</option>
+          <option value="3">3 Months</option>
+          <option value="6">6 Months</option>
+          <option value="12">12 Months</option>
+        </select>
+        <label for="add-ons">Add-ons:</label>
+        <input
+          type="checkbox"
+          id="add-ons"
+          name="add-ons"
+          value="personal-training"
+        />
+        <label for="add-ons">Personal Training (+$20/month)</label>
+      </div>
+      <div class="total-price">
+        <h4>Total Price:</h4>
+        <p class="price">$29.99/month</p>
+      </div>
+    </div>
+
+    <script>
+      // Function to update the total price based on membership duration and add-ons
+      function updateTotalPrice() {
+        const membershipDuration = parseInt(
+          document.getElementById("membership-duration").value
+        );
+        const addOnsCheckbox = document.getElementById("add-ons");
+        const totalPriceElement = document.querySelector(".total-price .price");
+
+        let totalPrice = 29.99; // Default price for basic membership
+
+        if (membershipDuration === 3) {
+          totalPrice *= 0.9; // 10% discount for 3-month membership
+        } else if (membershipDuration === 6) {
+          totalPrice *= 0.8; // 20% discount for 6-month membership
+        } else if (membershipDuration === 12) {
+          totalPrice *= 0.7; // 30% discount for 12-month membership
+        }
+
+        if (addOnsCheckbox.checked) {
+          totalPrice += 20; // Add $20 for personal training add-on
+        }
+
+        totalPriceElement.textContent = `$${totalPrice.toFixed(2)}/month`;
+      }
+
+      // Add event listeners to the membership duration and add-ons elements
+      document
+        .getElementById("membership-duration")
+        .addEventListener("change", updateTotalPrice);
+      document
+        .getElementById("add-ons")
+        .addEventListener("change", updateTotalPrice);
+
+      // Initialize the total price
+      updateTotalPrice();
+    </script>
+
+    <footer>
+      <p>&copy; 2023 AHD Gym. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
